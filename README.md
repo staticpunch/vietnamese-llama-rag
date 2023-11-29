@@ -5,7 +5,14 @@ The main goal of this project is building a transformer model for closed questio
 - Better RAG pipeline (our solution for VHAC).
 
 # Introduction
-Our initial motivation for this project was to compete in VHAC -  NLP track. In this track, we were given a corpus of Vietnamese Wikipedia articles and had to build a RAG solution to tackle general questions, whose answers could be found within the corpus. For more information about this competition, please visit: [`https://aihub.ml/competitions/557#participate`](https://aihub.ml/competitions/557). Our approach was utilizing semantic search combined with BM25 for retrieving most relevant contexts to a question, then using a GPT-like model solely trained on closed QA task to give answer to that question. 
+Our initial motivation for this project was to compete in VHAC -  NLP track. In this track, we were given a corpus of Vietnamese Wikipedia articles and had to build a RAG solution to tackle general questions, whose answers could be found within the corpus. For more information about this competition, please visit: [`https://aihub.ml/competitions/557#participate`](https://aihub.ml/competitions/557). Our approach was utilizing semantic search combined with BM25 for retrieving most relevant contexts to a question, then using a GPT-like model solely trained on closed QA task to give answer to that question. However this is not a rewarded solution, but we still find it beneficial to share it with the community :).
+
+# Installation
+`pip install -r requirements.txt`
+
+# Demo
+The following video shows some examples of our RAG pipeline. (Note that the generated texts are based on prompts including questions and their contexts, not only the questions)
+[rag.webm](https://github.com/staticpunch/vietnamese-llama-rag/assets/134955821/6b21d2df-d0c4-4b48-9a6a-a52c763ba446)
 
 # Usage
 ## Closed QA task only.
@@ -78,4 +85,11 @@ def generate(prompt, max_new_tokens=1024):
 output = generate(prompt)
 ```
 ## RAG
-You can start with `basic_rag.ipynb`
+You can start with `basic_rag.ipynb` to get some quick experiments on how the `llm4fun/vietrag-7b-v1.0` model work within in simple RAG pipeline. In this version, we use only a BM25 retriever to retrieve contexts. For those who are interested in our VHAC's solution, please check `better_rag.ipynb`. In this improved version, we incorporate BM25 and semantic search, we also implement some techniques to make the retrieved contexts "better" before feeding them to the LLM.
+
+## Training Closed QA model
+We will soon release our details on training datasets.
+
+## Limitations
+- If the retrieved contexts are correct, the model is likely to give an accurate answer. However, if wrong contexts are retrieved, the model will hallucinate almost everytime. I think this is some kind of "the model does not know that it does not know" behavior.
+- There is this weird behavior. If the context fed to the model is not parargaphs with complete sentences, the model will have higher chance of generating repeating tokens.

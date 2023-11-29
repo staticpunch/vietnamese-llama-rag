@@ -84,6 +84,15 @@ def generate(prompt, max_new_tokens=1024):
 
 output = generate(prompt)
 ```
+To tweak the model's answering style, feel free to replace the `instruction` part of the prompt. I reccommend you select one of these following instructions, because they are used during training. 
+```py
+instructions = [
+    'You are an AI assistant. Provide a detailed answer so user don’t need to search outside to understand the answer.',
+    'You are an AI assistant. You will be given a task. You must generate a detailed and long answer.',
+    'You are an AI assistant. User will you give you a task. Your goal is to complete the task as faithfully as you can. While performing the task think step-by-step and justify your steps.',
+    'You are an smart assistant. Provide a direct, short and exact answer to the following question from its provided context.'
+]
+```
 ## RAG
 You can start with `basic_rag.ipynb` to get some quick experiments on how the `llm4fun/vietrag-7b-v1.0` model work within in simple RAG pipeline. In this version, we use only a BM25 retriever to retrieve contexts. For those who are interested in our VHAC's solution, please check `better_rag.ipynb`. In this improved version, we incorporate BM25 and semantic search, we also implement some techniques to make the retrieved contexts "better" before feeding them to the LLM.
 

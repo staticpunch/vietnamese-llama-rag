@@ -94,6 +94,15 @@ instructions = [
 ]
 ```
 ## RAG
+First you need to prepare the corpus. Run:
+```
+cd vietnamese-llamma-rag
+mkdir data
+mv data_raw10k.zip data
+unzip data/data_raw10k.zip
+```
+To encode this whole corpus into embeddings, please run the notebook `corpus_embeddings.ipynb`. However, this is only necessary if you want to try out the `better_rag.ipynb` that's I'm going to introduce :).
+
 You can start with `basic_rag.ipynb` to get some quick experiments on how the `llm4fun/vietrag-7b-v1.0` model work within in simple RAG pipeline. In this version, we use only a BM25 retriever to retrieve contexts. For those who are interested in our VHAC's solution, please check `better_rag.ipynb`. In this improved version, we incorporate BM25 and semantic search, we also implement some techniques to make the retrieved contexts "better" before feeding them to the LLM.
 
 ## Training Closed QA model

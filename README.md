@@ -11,8 +11,7 @@ Our initial motivation for this project was to compete in VHAC -  NLP track. In 
 `pip install -r requirements.txt`
 
 # Demo
-The following video shows some examples of our RAG pipeline. (Note that the generated texts are based on prompts including questions and their contexts, not only the questions)
-[rag.webm](https://github.com/staticpunch/vietnamese-llama-rag/assets/134955821/6b21d2df-d0c4-4b48-9a6a-a52c763ba446)    
+The following video shows some examples of our RAG pipeline. (Note that the generated texts are based on prompts including questions and their contexts, not only the questions)    
 ![ezgif com-video-to-gif](https://github.com/staticpunch/vietnamese-llama-rag/assets/33414340/fde3e5fc-c623-456a-8ec8-17a4e1f8876e)
 
 

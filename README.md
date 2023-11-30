@@ -13,6 +13,8 @@ Our initial motivation for this project was to compete in VHAC -  NLP track. In 
 # Demo
 The following video shows some examples of our RAG pipeline. (Note that the generated texts are based on prompts including questions and their contexts, not only the questions)
 [rag.webm](https://github.com/staticpunch/vietnamese-llama-rag/assets/134955821/6b21d2df-d0c4-4b48-9a6a-a52c763ba446)
+[286664642-6b21d2df-d0c4-4b48-9a6a-a52c763ba446.webm](https://github.com/staticpunch/vietnamese-llama-rag/assets/33414340/509ffbf9-37f7-42c7-a506-72aaa0527bc6)
+
 
 # Usage
 ## Closed QA task only.
